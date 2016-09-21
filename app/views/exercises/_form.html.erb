@@ -1,0 +1,11 @@
+<%= form_for @exercise, remote: true do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name, :class => 'form-control' %>
+<%= f.label :calories_burned %>
+<%= f.number_field :calories_out, :class => 'form-control' %>
+<%= f.label :duration %>
+<%= f.number_field :duration, :class => 'form-control' %>
+<%= f.label :day %>
+<%= f.date_field :day, :class => 'form-control' %>
+<%= f.submit 'Add Entry', :class => 'btn btn-success' %>
+<% end %>

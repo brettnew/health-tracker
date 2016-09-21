@@ -8,6 +8,7 @@ class ExercisesController < ApplicationController
     @user = User.find(current_user.id)
     @exercise = @user.exercises.new(exercise_params)
     if @exercise.save
+      flash[:alert]= "Your entry has been saved"
       redirect_to :back
     else
       flash[:alert] ="You did not fill in all fields. Your entry has not been saved."
@@ -18,6 +19,6 @@ class ExercisesController < ApplicationController
 
 private
   def exercise_params
-    params.require(:exercise).permit(:name, :calories_out, :duration, :day)
+    params.require(:exercise).permit(:name, :calories_out, :duration, :day, :user_id)
   end
 end

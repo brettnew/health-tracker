@@ -8,6 +8,7 @@ class FoodsController < ApplicationController
     @user = User.find(current_user.id)
     @food = @user.foods.new(food_params)
     if @food.save
+      flash[:alert]= "Your entry has been saved"
       redirect_to :back
     else
       flash[:alert] ="You did not fill in all fields. Your entry has not been saved."
@@ -18,6 +19,6 @@ class FoodsController < ApplicationController
 
 private
   def food_params
-    params.require(:food).permit(:name, :calories_in, :serving_size, :day)
+    params.require(:food).permit(:name, :calories_in, :serving_size, :day, :user_id)
   end
 end

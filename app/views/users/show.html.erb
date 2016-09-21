@@ -1,0 +1,19 @@
+<div class="col-sm-6">
+  <h2>Your Food Intake:</h2>
+  <% @user.foods.each do |food| %>
+  <div class="food-div">
+    <p>Food: <%= food.name %></p>
+    <p>Calories: <%= food.calories_in %></p>
+  </div>
+  <% end %>
+</div>
+
+<div class="col-sm-6">
+  <h2>Your Exercise:</h2>
+  <% @user.exercises.each do |exercise| %>
+  <div class="exerise-div">
+    <p>Exercise: <%= exercise.name %></p>
+    <p>Calories: <%= exercise.calories_out %></p>
+  </div>
+  <% end %>
+</div>

@@ -19,6 +19,6 @@ class ExercisesController < ApplicationController
 
 private
   def exercise_params
-    params.require(:exercise).permit(:name, :calories_out, :duration, :day, :user_id)
+    params.require(:exercise).permit(:name, :calories_out, :duration, :day)
   end
 end

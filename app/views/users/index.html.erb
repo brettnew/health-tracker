@@ -1,0 +1,13 @@
+<h1>Welcome to Health Tracker!</h1>
+
+
+<% if current_user %>
+<%= link_to 'Add Food', new_food_path, id: "new_food_link", class: "btn btn-primary", remote: true %>
+
+
+
+
+<% else %>
+<h2>Please <%= link_to 'create account', new_user_path %> or <%= link_to 'log in', new_session_path %> to get started!</h2>
+
+<% end %>

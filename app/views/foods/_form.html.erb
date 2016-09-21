@@ -1,0 +1,11 @@
+<%= form_for @food, remote: true do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name, :class => 'form-control' %>
+<%= f.label :calories_in %>
+<%= f.number_field :calories_in, :class => 'form-control' %>
+<%= f.label :serving_size_in_cups %>
+<%= f.number_field :serving_size, :class => 'form-control' %>
+<%= f.label :day %>
+<%= f.date_field :day, :class => 'form-control' %>
+<%= f.submit 'Add Food', :class => 'btn btn-success' %>
+<% end %>

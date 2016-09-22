@@ -18,4 +18,6 @@
   <% end %>
 </div>
 
-<%= line_chart Exercise.group(:user_id).group_by_day(:day).count %>
+<%= line_chart @user.exercises.map { |exercise|
+    {name: exercise.name, data: current_user.exercises.group_by_day(:day).count}
+} %>

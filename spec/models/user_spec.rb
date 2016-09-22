@@ -7,6 +7,6 @@ describe User do
   it { should validate_presence_of :age }
   it { should validate_presence_of :password_digest }
 
-  it { should have_and_belong_to_many :exercises}
-  it { should have_and_belong_to_many :foods}
+  it { should have_many :exercises}
+  it { should have_many :foods}
 end

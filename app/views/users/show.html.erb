@@ -2,6 +2,7 @@
   <h2>Your Food Intake:</h2>
   <% @user.foods.each do |food| %>
   <div class="food-div">
+    <p>Date: <%= food.day %></p>
     <p>Food: <%= food.name %></p>
     <p>Calories: <%= food.calories_in %></p>
   </div>
@@ -12,13 +13,16 @@
   <h2>Your Exercise:</h2>
   <% @user.exercises.each do |exercise| %>
   <div class="exerise-div">
+    <p>Date: <%= exercise.day %></p>
     <p>Exercise: <%= exercise.name %></p>
     <p>Calories: <%= exercise.calories_out %></p>
   </div>
   <% end %>
+
+
 </div>
 
 <%= line_chart [
-  {name: "Calories Consumed", data: current_user.exercises.reduce({}) { |result, exercise| result.merge({exercise.day => exercise.calories_out}) }},
-  {name: "Calories Burned", data: current_user.foods.reduce({}) { |result, food| result.merge({food.day => food.calories_in}) }},
+  {name: "Calories Burned", data: current_user.exercises.reduce({}) { |result, exercise| result.merge({exercise.day => exercise.calories_out}) }},
+  {name: "Calories Consumed", data: current_user.foods.reduce({}) { |result, food| result.merge({food.day => food.calories_in}) }},
 ] %>

@@ -18,6 +18,7 @@
   <% end %>
 </div>
 
-<%= line_chart @user.exercises.map { |exercise|
-    {name: exercise.name, data: current_user.exercises.group_by_day(:day).count}
-} %>
+<%= line_chart [
+  {name: "Calories Consumed", data: current_user.exercises.reduce({}) { |result, exercise| result.merge({exercise.day => exercise.calories_out}) }},
+  {name: "Calories Burned", data: current_user.foods.reduce({}) { |result, food| result.merge({food.day => food.calories_in}) }},
+] %>
